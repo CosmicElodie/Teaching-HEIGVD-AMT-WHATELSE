@@ -6,6 +6,8 @@ import ch.heigvd.amt.whatelse.impl.Yverdoto;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GeorgeTest {

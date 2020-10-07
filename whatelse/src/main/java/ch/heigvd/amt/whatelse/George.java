@@ -3,6 +3,8 @@ package ch.heigvd.amt.whatelse;
 import ch.heigvd.amt.whatelse.api.ICoffee;
 import ch.heigvd.amt.whatelse.impl.Yverdoto;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class George {
 
   /*
@@ -19,6 +21,14 @@ public class George {
    */
 
   public ICoffee pleasePrepareMeANice(String coffeeName) {
+    String prefix = "ch.heigvd.amt.whatelse.impl.";
+    String className = prefix + coffeeName;
+    try {
+      ICoffee coffee = (ICoffee)Class.forName(className).getConstructor().newInstance();
+      return coffee;
+    } catch (InstantiationException | NoSuchMethodException | IllegalAccessException | InvocationTargetException | ClassNotFoundException e) {
+      e.printStackTrace();
+    }
     return new Yverdoto();
   }
 
